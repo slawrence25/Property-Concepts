@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property Concepts Design and Maintenance | Coffs Harbour</title>
+  <meta name="description" content="Property Concepts Design and Maintenance provides design, maintenance and property solutions in Coffs Harbour and surrounding areas." />
+  <style>
+    :root {
+      --navy: #123047;
+      --green: #5f7f61;
+      --sand: #f5f0e8;
+      --charcoal: #252525;
+      --white: #ffffff;
+      --light: #f8faf9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--charcoal);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 18px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .tagline {
+      color: #dce8dc;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    .hero {
+      background: linear-gradient(rgba(18,48,71,0.82), rgba(18,48,71,0.82)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 96px 24px;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      line-height: 1.1;
+      margin: 0 0 18px;
+      max-width: 850px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 0 28px;
+      color: #edf4ee;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .btn:hover { transform: translateY(-1px); opacity: 0.92; }
+
+    section {
+      padding: 70px 24px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: 2rem;
+      margin: 0 0 14px;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      margin: 0 0 32px;
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 8px 24px rgba(18,48,71,0.08);
+      border-top: 5px solid var(--green);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--sand);
+      padding: 28px;
+      border-radius: 16px;
+    }
+
+    ul { padding-left: 20px; }
+
+    .contact-box {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .contact-box h3 { margin-top: 0; }
+
+    .contact-box a {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .policies {
+      background: var(--white);
+    }
+
+    details {
+      background: var(--light);
+      margin-bottom: 14px;
+      padding: 18px 20px;
+      border-radius: 10px;
+      border: 1px solid #dde5df;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    footer {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer a { color: var(--white); }
+
+    @media (max-width: 760px) {
+      nav { width: 100%; }
+      nav a { display: inline-block; margin: 8px 12px 0 0; }
+      .split { grid-template-columns: 1fr; }
+      .hero { padding: 72px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div>
+        <div class="brand">Property Concepts Design and Maintenance</div>
+        <div class="tagline">Design • Maintenance • Property Solutions</div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#payments">Payments</a>
+        <a href="#policies">Policies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Practical property maintenance and improvement solutions in Coffs Harbour.</h1>
+        <p>Property Concepts Design and Maintenance helps homeowners, landlords and businesses with reliable maintenance, small improvements, repairs and property presentation.</p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="tel:0414375827">Call 0414 375 827</a>
+          <a class="btn btn-secondary" href="mailto:propertyconceptsDM@gmail.com">Email for a quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-lead">We provide general property maintenance and practical design support for residential and light commercial properties across Coffs Harbour and surrounding areas.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Property Maintenance</h3>
+            <p>General repairs, upkeep, odd jobs, minor fixes, property clean-up and ongoing maintenance support.</p>
+          </article>
+          <article class="card">
+            <h3>Design & Improvement Ideas</h3>
+            <p>Practical planning for small property improvements, layout ideas, presentation upgrades and maintenance solutions.</p>
+          </article>
+          <article class="card">
+            <h3>Pre-Sale & Rental Preparation</h3>
+            <p>Help getting properties ready for sale, rent or inspection, including minor repairs and presentation improvements.</p>
+          </article>
+          <article class="card">
+            <h3>Custom Property Solutions</h3>
+            <p>Tailored help for landlords, homeowners and small businesses needing a practical, reliable property service.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="background: #fff;">
+      <div class="container split">
+        <div>
+          <h2 class="section-title">About Property Concepts</h2>
+          <p>Property Concepts Design and Maintenance is based in Coffs Harbour, Australia. We focus on practical, reliable and clear property solutions for everyday maintenance and improvement needs.</p>
+          <p>Our goal is to help clients keep their property safe, functional, tidy and well presented, whether it is a family home, rental property, investment property or business premises.</p>
+        </div>
+        <div class="panel">
+          <h3>Why choose us?</h3>
+          <ul>
+            <li>Local Coffs Harbour service</li>
+            <li>Clear communication before work begins</li>
+            <li>Practical advice and reliable maintenance</li>
+            <li>Quotes provided before paid work proceeds</li>
+            <li>Suitable for homeowners, landlords and small businesses</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="payments">
+      <div class="container split">
+        <div>
+          <h2 class="section-title">Payments & Quotes</h2>
+          <p>Quotes are provided before work begins. Pricing depends on the job size, location, materials required and the type of service requested.</p>
+          <p>Payment may be requested by invoice, bank transfer, card payment or another agreed method. For larger jobs, a deposit or progress payment may be required before work starts or as work progresses.</p>
+        </div>
+        <div class="panel">
+          <h3>Typical payment process</h3>
+          <ul>
+            <li>Client makes an enquiry</li>
+            <li>We discuss the job and inspect if required</li>
+            <li>A quote or estimate is provided</li>
+            <li>Client approves the work</li>
+            <li>Payment is made by invoice or agreed payment method</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="policies" class="policies">
+      <div class="container">
+        <h2 class="section-title">Customer Policies</h2>
+        <p class="section-lead">The following information is provided to make our service terms clear for customers and payment providers.</p>
+
+        <details open>
+          <summary>Refund & Cancellation Policy</summary>
+          <p>If a customer needs to cancel or reschedule work, please contact us as soon as possible. Refunds for deposits or pre-paid work are assessed based on the timing of cancellation, materials already purchased, and work already completed.</p>
+          <p>Where work has already been completed, payment is required for the completed work. If there is an issue with the service, customers should contact us promptly so we can review and attempt to resolve the matter fairly.</p>
+        </details>
+
+        <details>
+          <summary>Service Delivery Policy</summary>
+          <p>Service timeframes are agreed directly with the customer and depend on job size, weather, material availability and site access. We aim to communicate clearly if a delay occurs.</p>
+        </details>
+
+        <details>
+          <summary>Privacy Policy</summary>
+          <p>We collect customer contact details and job information only for the purpose of quoting, scheduling, completing work, invoicing and communicating with customers. We do not sell customer information. Payment information is handled by the relevant payment processor and is not stored by us directly.</p>
+        </details>
+
+        <details>
+          <summary>Terms of Service</summary>
+          <p>By approving a quote or booking work, the customer agrees to provide safe and reasonable access to the property and to pay for approved work as agreed. Any additional work outside the original quote may require approval and may incur extra charges.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container split">
+        <div>
+          <h2 class="section-title">Contact Us</h2>
+          <p>For quotes, bookings or general enquiries, contact Property Concepts Design and Maintenance.</p>
+        </div>
+        <div class="contact-box">
+          <h3>Property Concepts Design and Maintenance</h3>
+          <p><strong>Location:</strong> Coffs Harbour, Australia</p>
+          <p><strong>Phone:</strong> <a href="tel:0414375827">0414 375 827</a></p>
+          <p><strong>Email:</strong> <a href="mailto:propertyconceptsDM@gmail.com">propertyconceptsDM@gmail.com</a></p>
+          <p><strong>Service area:</strong> Coffs Harbour and surrounding areas</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Property Concepts Design and Maintenance. Coffs Harbour, Australia.</p>
+    <p>Design • Maintenance • Property Solutions</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
